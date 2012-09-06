@@ -1,7 +1,7 @@
 require_relative 'lib/geo_name'
 
 begin
-  while !nil do
+  loop do
     puts "please enter lat and lon requirements (e.g. 52,13)"
 
     Signal.trap("INT") do
