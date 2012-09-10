@@ -8,8 +8,14 @@ begin
       puts "\nthanks for using this simple app"
       exit
     end
+
+    values = gets
     
-    values = gets.split(",")
-    puts GeoName.new.get_lat_lon(values[0], values[1])
+    if values.include?(",")
+      values = values.split(",")
+      puts GeoName.new.get_lat_lon(values[0], values[1])
+    else
+      puts "\nPlease enter correct format (e.g. 52,13)\n\n"
+    end
   end
 end

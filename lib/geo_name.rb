@@ -8,7 +8,11 @@ class GeoName
       firstname =  places_nearby.first.respond_to?("name") ? places_nearby.first.name : nil
       country_name = places_nearby.first.respond_to?("country_name") ? places_nearby.first.country_name : nil
     end
-    response = {:firstname => firstname, :country_name => country_name}
+      unless firstname == nil || country_name == nil
+        response = {:firstname => firstname, :country_name => country_name}
+      else
+        response = "Sorry no values found for lat,lon"
+      end
     response
   end
 
